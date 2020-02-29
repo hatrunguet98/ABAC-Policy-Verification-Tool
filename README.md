@@ -10,5 +10,5 @@ Java swing
 mvn install
 
 # Run
-cd target
+cd target \n
 java -jar ToolcheckABAC-1.0-SNAPSHOT
