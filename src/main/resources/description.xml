@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Policys>
+    <Rule RuleId="rule1" Effect="Permit">
+        <Role>ROLE_DOCTOR</Role>
+        <Action>READ</Action>
+        <Resource>PatientRecord</Resource>
+        <Condition>
+            <Restriction>subject.employee.id == resource.employee.id</Restriction>
+        </Condition>
+        <Environment>True</Environment>
+    </Rule>
+    <Rule RuleId="rule2" Effect="Permit">
+        <Role>ROLE_DOCTOR</Role>
+        <Action>READ</Action>
+        <Resource>PatientRecord</Resource>
+        <Condition>
+            <Restriction>subject.employee.id == resource.patient.employee.id</Restriction>
+        </Condition>
+        <Environment>True</Environment>
+    </Rule>
+    <Rule RuleId="rule3" Effect="Permit">
+        <Role>ROLE_DOCTOR</Role>
+        <Action>UPDATE</Action>
+        <Resource>PatientRecord</Resource>
+        <Condition>
+            <Restriction>subject.employee.id == resource.employee.id</Restriction>
+        </Condition>
+        <Environment>True</Environment>
+    </Rule>
+    <Rule RuleId="rule4" Effect="Permit">
+        <Role>ROLE_RECEPTIONIST</Role>
+        <Action>CREATE</Action>
+        <Resource>PatientRecord</Resource>
+        <Condition>
+            <Restriction>True</Restriction>
+        </Condition>
+        <Environment>True</Environment>
+    </Rule>
+    <Rule RuleId="rule5" Effect="Permit">
+        <Role>ROLE_NURSE</Role>
+        <Action>READ</Action>
+        <Resource>PatientRecord</Resource>
+        <Condition>
+            <Restriction>subject.employee.department.type == resource.department.type</Restriction>
+            <Restriction>subject.employee.hospital.type == resource.hospital.type</Restriction>
+        </Condition>
+        <Environment>True</Environment>
+    </Rule>
+    <Rule RuleId="rule6" Effect="Permit">
+        <Role>ROLE_PATIENT</Role>
+        <Action>READ</Action>
+        <Resource>PatientRecord</Resource>
+        <Condition>
+            <Restriction>subject.patient.id == resource.id</Restriction>
+        </Condition>
+        <Environment>True</Environment>
+    </Rule>
+</Policys>
